@@ -1,4 +1,3 @@
-
 package trees;
 
 /**
@@ -18,8 +17,6 @@ package trees;
     so declared a package Trees.
  * ================================================
  */
-
-import java.util.*;
 
 public class SegmentTree {
     private int[] segTree;

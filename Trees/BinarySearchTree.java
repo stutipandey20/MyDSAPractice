@@ -13,11 +13,13 @@ package trees;
 public class BinarySearchTree {
     class Node {
         int value;
-        Node left, right;
+        Node left;
+        Node  right;
 
         public Node(int value) {
             this.value = value;
-            left = right = null;
+            left = null;
+            right = null;
         }
     }
 
