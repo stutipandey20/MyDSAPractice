@@ -1,0 +1,22 @@
+
+Using a Doubly Linked List (DLL) is essential for efficiently implementing an LRU Cache because:
+
+O(1) Deletion of Nodes
+    In a Single Linked List (SLL), removing a node requires traversing from the head to find the previous node 
+    (since there's no backward reference), making it O(N).
+    In a Doubly Linked List (DLL), each node has a prev pointer, allowing O(1) removal without traversal.
+
+Efficient Movement of Nodes (Reordering)
+    When accessing a node (get()) or updating (put()), we need to move it to the front.
+    In SLL, moving a node to the front is costly because we'd need to find and adjust pointers carefully.
+    In DLL, moveToHead(node) is O(1) since we can detach and reattach the node using prev and next pointers.
+
+O(1) Eviction of Least Recently Used (LRU) Node
+    The tail.prev always gives us the least recently used (LRU) node in DLL.
+    In SLL, finding the LRU node (which is before tail) requires O(N) traversal.
+
+Why a Singly Linked List (SLL) Won't Work Well:
+    If we only use an SLL, we lose the ability to efficiently delete nodes in O(1) since 
+    we need access to the previous node, which requires traversal.
+
+    

@@ -15,7 +15,7 @@ public class BinarySearchTree {
         int value;
         Node left;
         Node  right;
-
+//Hell.how do you do
         public Node(int value) {
             this.value = value;
             left = null;
