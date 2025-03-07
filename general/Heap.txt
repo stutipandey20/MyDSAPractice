@@ -1,0 +1,139 @@
+
+
+/**
+ * all children node values should be less or equal to the parent node value (the max-heap property)
+ * or all children node values should be greater or equal to the parent node value (the min-heap property)
+ * 
+ * Root Node: Located at index 0.
+ * Left Child: For a node at index i, the left child is at index 2*i + 1.
+ * Right Child: For a node at index 2*i + 2.
+ * Parent Node: For a node at index i, the parent is at index (i - 1) / 2.
+ */
+
+# Heap Data Structure (MinHeap & MaxHeap) Implementation in Java
+
+MinHeap: The smallest element is at the root.
+MaxHeap: The largest element is at the root.
+
+# Complexity Analysis
+Insertion: O(log n) (heapify-up is at most log n swaps)
+Extract Min: O(log n) (heapify-down is at most log n swaps)
+Search: O(n) (unsorted structure, needs a full scan)
+
+# Applications of Heap:
+The heap may be used everywhere where we need to keep track of the list of min or max elements 
+that may be changed during the runtime.
+1. Priority Queue Implementation (Task scheduling in OS) -> process with high priority runs first
+2. Dijkstra’s Algorithm for finding the shortest path in graphs
+3. Heap Sort: Sorting algorithm that uses the heap property to sort an array. O(N log N)
+4. Prim’s Algorithm (Minimum Spanning Tree)
+    Network Design: Optimizing cables in telecommunication networks.
+    Electrical Grid Design: Finding the minimum-cost connections.
+5. Merging K Sorted Lists (MinHeap)
+6. Finding Kth Largest or Smallest Element in an Array
+7. Real-Time Streaming Data (Sliding Window Problems)
+    example: Temperature Monitoring: Keeping track of the hottest and coldest temperatures in the last hour.
+8. Load Balancing & Scheduling: Cloud computing: AWS, Google Cloud use heaps to distribute workloads efficiently.
+9. Huffman Encoding (Data Compression): Heaps are used in Huffman Coding, which is a lossless data compression algorithm.
+10. Memory Management (Garbage Collection)
+    Java Garbage Collector (JVM): Uses a heap-based approach to free up memory dynamically.
+    LRU (Least Recently Used) Cache: Removing least-used elements.
+
+
+# The Heap and the Nursery
+
+-> In many modern programming languages, memory is managed through a combination of the heap and stack. 
+-> The heap is a large pool of memory used for dynamic allocations, while the stack is reserved for function calls and local variables.
+
+-> A specialized section of the heap, known as the nursery, is used in garbage-collected languages to store newly allocated objects. 
+-> Since most objects have short lifespans, allocating them in the nursery allows for efficient garbage collection, reducing overhead and improving performance.
+
+# Memory management in Software Applications:
+-> this involves the allocation, usage, and deallocation of memory in a way that minimizes waste and maximises speed.
+
+# Heap allocation: Objects are allocated either on 
+=> the stack (if they have a short lifespan and well-defined scope) or on 
+=> the heap (if they need to persist beyond a function call).
+
+# Heap allocation is more flexible but comes with a higher cost in terms of performance. 
+To mitigate this, memory allocators use techniques like bump allocation, free lists, and region-based allocation to optimize memory usage
+
+The heap is a memory space where Java stores objects created using the new keyword.
+
+# Java Heap Space
+    Definition: A shared memory area used for storing objects and class instances.
+    Usage: Stores dynamically allocated objects and class metadata.
+    Lifetime: Objects in the heap persist as long as they are referenced. The Garbage Collector (GC) automatically removes unused objects.
+    Access: Accessible globally by multiple threads.
+    Size: Typically larger than stack memory and can be configured using JVM options (-Xms and -Xmx).
+
+# Stack Memory
+    Definition: A region of memory used for storing method-specific data, including primitive values and object references.
+    Usage: Stores method calls, local variables, and references to heap objects.
+    Lifetime: Data is removed when the method execution ends (Last-In-First-Out structure).
+    Access: Each thread has its own stack, making it thread-safe.
+    Size: Smaller in size and managed automatically by the JVM.
+
+public void myMethod() {
+    int x = 10; // Stored in Stack
+    Person p2 = new Person(); // Reference stored in Stack, object in Heap
+}
+
+# Question: How do I fix a Java heap space error?
+=> A Java heap space error occurs when the application runs out of heap memory. Solutions:
+    Increase heap size using JVM options:   java -Xms512m -Xmx4g MyApp
+        -Xms512m: Sets initial heap size to 512MB.
+        -Xmx4g: Sets maximum heap size to 4GB.
+        For applications like Tomcat or Spring Boot, you can configure memory settings in the startup script
+    Optimize code to prevent memory leaks.
+    Use profiling tools like VisualVM or Eclipse MAT.
+    Enable Garbage Collection (GC) tuning.
+
+# Question: Is a heap the same thing as a priority queue?
+=> No. A heap is a binary tree-based data structure used to implement priority queues efficiently.
+    A priority queue is an abstract data type that retrieves elements based on priority.
+    A heap (min-heap or max-heap) is a tree-based structure often used to implement priority queues.
+
+# Question: What Is a Good Heap Size in Java?
+=> It depends on the application.
+    Small applications: 512MB - 1GB (-Xmx1g)
+    Medium applications: 2GB - 4GB (-Xmx4g)
+    Large applications: 8GB or more, depending on memory needs.
+
+# Question: How can I monitor and optimize Java heap memory usage?
+=> Monitoring tools:
+    VisualVM: Real-time monitoring and heap dump analysis.
+    Eclipse MAT: Helps detect memory leaks.
+    JConsole / JVisualVM: JVM monitoring with GC insights.
+    Last9 (for PostgreSQL monitoring) can provide insights if Java interacts with databases.
+
+=> Optimization tips:
+    Use weak references (WeakReference, SoftReference) when appropriate.
+    Avoid memory leaks (unclosed streams, static collections, etc.).
+    Use Garbage Collection (GC) tuning (-XX:+UseG1GC).
+
+# Question: How to check if a given array represents a Binary Heap?
+=> To check if an array represents a binary heap, ensure it satisfies the heap property:
+
+    Max-Heap: arr[parent] >= arr[child]
+    Min-Heap: arr[parent] <= arr[child]
+
+    boolean isHeap(int arr[], int n) {
+    for (int i = 0; i <= (n - 2) / 2; i++) {
+        if (arr[i] < arr[2 * i + 1] || (2 * i + 2 < n && arr[i] < arr[2 * i + 2]))
+            return false;
+    }
+    return true;
+}  
+
+# Garbage Collection:
+=> It is the process of automatically reclaiming the memory occupied by objects that are no longer in use. 
+    Different GC algorithms exist, each with trade-offs
+
+
+# References:
+https://last9.io/blog/heaps-in-java/
+
+
+
+
