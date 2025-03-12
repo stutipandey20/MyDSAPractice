@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.Arrays;
 
 /**
- * LC - 1046
+ * LeetCode - 1046
  * Last Stone Weight Problem 
  *
  * Given an array of stone weights, repeatedly smash the two heaviest stones:
