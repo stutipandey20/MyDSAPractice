@@ -1,0 +1,66 @@
+
+String class in Java
+-> String is a sequence of characters. 
+In Java, objects of the String class are immutable which means they cannot be changed once created. 
+In this article, we will learn about the String class in Java.
+
+String Constructors in JAVA
+
+1. String(byte[] byte_arr)
+-> Construct a new String by decoding the byte array. It uses the platform’s default character set for decoding.
+
+2. String(byte[] byte_arr, Charset char_set)
+-> Construct a new String by decoding the byte array. It uses the char_set for decoding.
+
+3. String(byte[] byte_arr, int start_index, int length)
+-> Construct a new string from the bytes array depending on the 
+start_index(Starting location) and length(number of characters from starting location).
+
+4. String(byte[] byte_arr, int start_index, int length, Charset char_set)
+-> Construct a new string from the bytes array depending on the start_index(Starting location) 
+and length(number of characters from starting location).Uses char_set for decoding.
+
+5. String(char[] char_arr)
+-> Allocates a new String from the given Character array.
+
+6. String(char[] char_array, int start_index, int count)
+-> Allocates a String from a given character array but choose count characters from the start_index.
+
+7. String(int[] uni_code_points, int offset, int count)
+-> Allocates a String from a uni_code_array but choose count characters from the start_index.
+
+8. String(StringBuffer s_buffer)
+-> Allocates a new string from the string in s_buffer.
+
+9. String(StringBuilder s_builder)
+-> Allocates a new string from the string in s_builder.
+
+String Methods in JAVA
+
+Explanation of Methods
+Method	                        Description	                            Example Output
+length()	                Returns the length of the string	        21
+toUpperCase()	            Converts to uppercase	                    "HELLO, JAVA WORLD!"
+toLowerCase()	            Converts to lowercase	                    "hello, java world!"
+trim()	                    Removes leading/trailing spaces	            "Hello, Java World!"
+substring(start, end)	    Extracts part of the string	                "Java"
+charAt(index)	            Returns the character at given index	    'J'
+contains(substring)	        Checks if substring exists	                true
+equals(other)	            Checks if two strings are equal	            false
+equalsIgnoreCase(other)	    Case-insensitive equality check	            true
+compareTo(other)	        Compares lexicographically	                32
+replace(old, new)	        Replaces substring	                        "Hello, Python World!"
+split(regex)	            Splits string into array	                ["", "Hello,", "Java", "World!", ""]
+startsWith(prefix)	        Checks prefix	                            true
+endsWith(suffix)	        Checks suffix	                            true
+indexOf(char)	            First occurrence index	                    8
+lastIndexOf(char)	        Last occurrence index	                    10
+isEmpty()	                Checks if empty	                            true
+isBlank()	                Checks if blank (only spaces)	            true
+join(delimiter, parts…)	    Joins multiple strings	                    "Hello - World - Java"
+valueOf(anyType)	        Converts other types to String	            "100"
+toCharArray()	            Converts to character array	                'H', 'e', 'l', 'l', 'o'...
+format(format, args…)	    Formats string	                            "My name is John and I am 25 years old."
+concat(other)	            Appends another string	                    "Hello, Java World! Welcome!"
+repeat(n)	                Repeats string N times (Java 11+)	        "Hello Hello Hello "
+Escape characters	        Handles quotes, newline, tabs	            "This is a \"quoted\" text with newline\nand tab\tspaces."
