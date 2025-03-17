@@ -1,6 +1,10 @@
 package leetCode;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
+import java.util.*;
 
 /**
  * Leetcode - 105: Construct Binary Tree from Preorder and Inorder Traversal
@@ -17,7 +21,8 @@ import java.util.Map;
 // Definition of TreeNode
 class TreeNode {
     int val;
-    TreeNode left, right;
+    TreeNode left;
+    TreeNode  right;
 
     TreeNode(int val) {
         this.val = val;
@@ -85,16 +90,39 @@ public class ConstructBinaryTree {
     }
 
     /**
-     * Utility function to print the tree in inorder fashion (should match the input inorder)
+     * Utility function to print the tree in **Level Order Format**
+     * Example: [3,9,20,null,null,15,7]
      * @param root The root node of the binary tree
      */
-    public void printInorder(TreeNode root) {
+    public void printLevelOrder(TreeNode root) {
         if (root == null) {
+            System.out.println("[]");
             return;
         }
-        printInorder(root.left);
-        System.out.print(root.val + " ");
-        printInorder(root.right);
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        List<String> result = new ArrayList<>();
+
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            
+            if (node == null) {
+                result.add("null");
+                continue;
+            }
+
+            result.add(String.valueOf(node.val));
+            queue.add(node.left);
+            queue.add(node.right);
+        }
+
+        // Remove trailing nulls to match LeetCode output format
+        while (result.get(result.size() - 1).equals("null")) {
+            result.remove(result.size() - 1);
+        }
+
+        System.out.println(result);
     }
 
     // Main function to test the implementation
@@ -108,9 +136,8 @@ public class ConstructBinaryTree {
         // Build the tree
         TreeNode root = treeBuilder.buildTree(preorder, inorder);
 
-        // Print the tree in inorder traversal (should match the input inorder array)
-        System.out.println("Inorder Traversal of Constructed Tree:");
-        treeBuilder.printInorder(root);
+        System.out.println("Level Order Traversal of Constructed Tree:");
+        treeBuilder.printLevelOrder(root);
     }
 }
 
