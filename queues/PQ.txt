@@ -1,0 +1,63 @@
+
+A Queue is a FIFO (First-In-First-Out) data structure where elements are added at the rear and removed from the front.
+Java provides the Queue interface in java.util, which can be implemented using LinkedList or PriorityQueue.
+
+A circular queue avoids wasted space in a fixed-size array-based queue by using the modulus (%) operator 
+to wrap around when reaching the end of the array.
+(rear + 1) % capacity
+When rear reaches the last index (capacity - 1), the % operator makes it wrap around to index 0, 
+reusing freed-up space.
+
+
+A Priority Queue is a special type of queue where elements are processed based on priority rather than the order of insertion. 
+Java provides an in-built PriorityQueue class in java.util that implements a Min-Heap by default.
+
+# PriorityQueue Time Complexity
+Operation	                        Time Complexity
+Insertion (add() or offer())	    O(log n)
+Deletion (poll())	                O(log n)
+Peek (peek())	                    O(1)
+Contains (contains())	            O(n)
+
+When to Use a Priority Queue?
+✅ Dijkstra’s Algorithm (Shortest Path)
+✅ Huffman Coding (Data Compression)
+✅ Task Scheduling (Based on priority)
+✅ Merging Sorted Lists
+
+# Diff between Queue.offer and queue.add
+-> Both offer() and add() are used to insert elements into a Java queue, but they behave differently when the queue is full.
+
+✅ Use add() when:
+You are using an unbounded queue (e.g., LinkedList).
+You want an exception if the queue reaches capacity.
+You are sure the queue won't exceed capacity.
+you must add an element and want an exception if it fails
+
+✅ Use offer() when:
+You are using a bounded queue (e.g., ArrayBlockingQueue).
+You want to avoid exceptions and handle failures gracefully.
+You need non-blocking behavior (e.g., in producer-consumer scenarios).
+
+Method	    Return Type	        Behavior When Queue is Full	                        Throws Exception?
+add(E e)	boolean	            Throws IllegalStateException if the queue is full	    Yes
+offer(E e)	boolean	            Returns false if the queue is full	                    No
+
+# Default Size of a Queue in Java
+In Java, the default size of a queue depends on the implementation being used.
+
+1️⃣ PriorityQueue Default Size
+The default size (initial capacity) of PriorityQueue is 11.
+It dynamically resizes as elements are added.
+
+2️⃣ LinkedList as a Queue (No Fixed Size)
+When using LinkedList as a Queue (Queue<Integer> queue = new LinkedList<>();), there is no fixed size.
+It grows dynamically based on memory availability.
+
+3️⃣ ArrayDeque Default Size
+ArrayDeque has a default size of 16.
+It resizes dynamically as needed.
+
+4️⃣ ConcurrentLinkedQueue Default Size
+ConcurrentLinkedQueue has no fixed size (it grows dynamically).
+It is useful for multi-threaded applications.
