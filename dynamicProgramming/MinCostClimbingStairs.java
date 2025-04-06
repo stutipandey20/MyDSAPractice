@@ -1,6 +1,13 @@
 package dynamicProgramming;
 import java.util.Arrays;
 
+
+/**
+ * Leetcode 746: Min Cost Climbing Stairs
+ * Author: Stuti Pandey
+ * Date: April 6, 2025 (Second Edit)
+ */
+
 public class MinCostClimbingStairs {
     
     // Optimization 1: Top-Down DP (Recursion + Memoization)
