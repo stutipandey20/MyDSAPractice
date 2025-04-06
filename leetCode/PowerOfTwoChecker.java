@@ -4,8 +4,9 @@ import java.util.Scanner;
 /*
  * LeetCode : 231 Power of Two
  * 
- * Author: Your Name
+ * Author: Stuti Pandey
  * Date: March 19, 2025
+ * 
  * Description: This program checks whether a number is a power of 2 using three different approaches:
  *  1. Bitwise operation -> Most efficient, best choice
  *  2. Iterative (loop-based) approach -> Simple but slightly slower

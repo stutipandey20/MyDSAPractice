@@ -3,6 +3,8 @@ package arrays;
 import java.util.*;
 
 /**
+ * LeetCode 49: Group Anagrams
+ * 
  * Solution class to group anagrams from an array of strings.
  * Uses a HashMap to store and retrieve anagram groups efficiently.
  */

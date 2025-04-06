@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 class MinimumWindowSubstring {
 
     /**
-     * LC - 76
+     * LeetCode - 76
      * Finds the minimum window substring in 's' that contains all characters of 't'.
      * Uses the sliding window technique with two pointers for efficiency.
      *
