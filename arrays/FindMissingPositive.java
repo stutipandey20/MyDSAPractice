@@ -32,7 +32,7 @@ public class FindMissingPositive {
                 nums[i] = temp; 
             }
         }
-        
+         
         // Step 2: Find the first index where the value is not i + 1
         for (int i = 0; i < n; i++) {
             if (nums[i] != i + 1) {
