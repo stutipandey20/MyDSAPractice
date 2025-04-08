@@ -57,7 +57,7 @@ public class FindMinInRotatedSortedArray {
 
         for (int i = 0; i < testCases.length; i++) {
             int result = findMin(testCases[i]);
-            System.out.println("Test Case " + (i + 1) + ": Minimum = " + result)
+            System.out.println("Test Case " + (i + 1) + ": Minimum = " + result);
         }
     }
 }
