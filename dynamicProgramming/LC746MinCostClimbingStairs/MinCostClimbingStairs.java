@@ -1,4 +1,4 @@
-package dynamicProgramming;
+package dynamicProgramming.LC746MinCostClimbingStairs;
 import java.util.Arrays;
 
 
@@ -81,20 +81,3 @@ public class MinCostClimbingStairs {
     }
 }
 
-/**
- * 1. Top-Down DP (Recursion + Memoization)
-        Uses recursion to break down the problem.
-        Memoization (caching) prevents redundant calculations.
-        Converts exponential complexity (O(2^n)) to linear (O(n)).
-        Space Complexity: O(n) (due to recursion stack and memo array).
-    2. Bottom-Up DP (Iterative DP)
-        Eliminates recursion to avoid stack overflow issues.
-        Uses a DP table to store previously computed results.
-        Time Complexity: O(n).
-        Space Complexity: O(n) (for the dp array).
-    3. Space-Optimized DP (O(1) Space)
-        Uses only two variables instead of an entire DP array.
-        Iteratively computes the minimum cost without extra space.
-        Time Complexity: O(n).
-        Space Complexity: O(1) (constant space).
- */
