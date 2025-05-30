@@ -48,3 +48,14 @@ but here, we are not summing, but instead we're taking the minimum of the two pr
 dp[i] = cost[i] + min(dp[i - 1], dp[i - 2])
 
 Yes, this reminds me of the Fibonacci pattern, where each step depends on the two previous ones. Instead of summing, I minimize between them and add cost. That similarity helped me decide to use an O(1) space DP solution, just like in space-optimized Fibonacci.
+
+✅ 3. Real-Life Analogy / Examples
+🔸 Escalator Cost Example
+You're in a shopping mall, and every step on the escalator has an associated "energy cost." You can skip a step (like hopping two stairs at once), but still pay some cost. What’s the cheapest way to reach the top?
+
+🔸 Fitness Tracking
+Imagine a smartwatch calculates the minimum calories burned while going up stairs — and you can take one or two stairs at a time. You want to minimize effort. Same principle applies.
+
+🔸 Mobile Game Design
+In a platformer game, each tile costs energy to land on. The player can jump over tiles — either one or two. To reach the end while conserving energy, what's the best path?
+

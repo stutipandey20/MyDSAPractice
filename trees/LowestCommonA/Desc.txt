@@ -1,0 +1,45 @@
+LeetCode 235 and 236 (so far)
+
+Two variations in basic use case:
+1. Lowest Common Ancestor in Binary Tree: https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
+2. Lowest Common Ancestor in Binary Search Tree: https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/description/
+
+For both, one soltuion will work:
+=> typical DFS(Postorder)
+We prefer DFS (postorder) over BFS for the LCA problem because we need to explore entire subtrees to determine whether both p and q are present below a node. 
+DFS naturally allows us to check this bottom-up, making it easier to identify the lowest node where both exist.
+
+✅ Pseudocode: LCA in Binary Tree (Recursive DFS)
+
+Function LCA(root, p, q):
+    If root is null OR root == p OR root == q:
+        Return root
+
+    left = LCA(root.left, p, q)
+    right = LCA(root.right, p, q)
+
+    If left is not null AND right is not null:
+        Return root   // p and q found in different subtrees
+
+    If left is not null:
+        Return left   // both p and q are in left subtree
+
+    Else:
+        Return right  // both p and q are in right subtree
+
+✅ Why a Special BST Solution Could Be More Efficient
+If the tree is a BST, you can use the ordering property to optimize:
+BST Property:
+All nodes in the left subtree have values < root.val
+All nodes in the right subtree have values > root.val
+
+
+✅ Key Concepts:
+DFS Traversal (Postorder) – You explore both subtrees before processing the current node.
+Recursive Bubble-up – If both p and q are found in different branches, current node is the LCA.
+Base Case handles identity matches and nulls.
+
+| Type      | Value                               |
+| --------- | ----------------------------------- |
+| **Time**  | O(N) — Visit each node once         |
+| **Space** | O(H) — Recursion stack (H = height) |
